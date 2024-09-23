@@ -12,7 +12,7 @@ void equipe();
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
-    printf("Bem vindo ao seu controle de despesas\n");
+    printf("Bem vindo ao seu controle de despensas\n");
     
     exibirMenu();
 
@@ -23,7 +23,7 @@ void exibirMenu()
 {
     int escolha;
     printf("///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///   Controle de despesas:                                           ///\n");
+    printf("///   Controle de despensa:                                           ///\n");
     printf("/// Escolha um módulo:                                                     ///\n");
     printf("///   1. Cadastro Pessoal                                                  ///\n");
     printf("///   2. Produtos                                                          ///\n");
