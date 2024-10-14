@@ -146,7 +146,7 @@ void cadastro_pessoa(void) {
             case 1:
                 printf("Digite o ID: ");
                 fgets(id, sizeof(id), stdin);
-                id[strcspn(id, "\n")] = '\0';  //Pesquise melhor depois sobre essa função strcspn 
+                id[strcspn(id, "\n")] = '\0';  //strcspn remove a nova linha sem usar uma função 
 
                 printf("Digite o Nome completo: ");
                 fgets(nome, sizeof(nome), stdin);
@@ -158,7 +158,7 @@ void cadastro_pessoa(void) {
 
                 printf("Digite a Data de Nascimento (dd/mm/aaaa): ");
                 fgets(data_nascimento, sizeof(data_nascimento), stdin);
-                data_nascimento[strcspn(data_nascimento, "\n")] = '\0'; 
+                data_nascimento[strcspn(data_nascimento, "\n")] = '\0';  
 
                 printf("\nCadastro realizado com sucesso!\n");
                 printf("ID: %s\n", id);
@@ -171,7 +171,7 @@ void cadastro_pessoa(void) {
                 printf("Saindo do cadastro.\n");
                 break;
 
-            default:                  
+            default:
                 printf("Opção inválida! Por favor, tente novamente.\n");
                 break;
         }
@@ -181,6 +181,12 @@ void cadastro_pessoa(void) {
 void produtos(void) {
 
   int escolha;
+  char id_codigo[20];      
+  char nome[100];           
+  char marca[50];           
+  int quant_estoque;        
+  char data_validade[11];   
+  char id_compra[20]; 
   printf("/////////////////////////////////////////////////////////////////////"
          "//////////\n");
   printf("///                                                                  "
@@ -213,8 +219,52 @@ void produtos(void) {
   scanf("%d", &escolha);
   printf("\n");
   getchar();
-}
+    getchar();  
 
+        switch (escolha) {
+            case 1:
+                printf("Digite o ID-código-de-barra: ");
+                fgets(id_codigo, 20, stdin);
+                id_codigo[strcspn(id_codigo, "\n")] = '\0';  
+
+                printf("Digite o Nome: ");
+                fgets(nome, 100, stdin);
+                nome[strcspn(nome, "\n")] = '\0';  
+
+                printf("Digite a Marca: ");
+                fgets(marca, 50, stdin);
+                marca[strcspn(marca, "\n")] = '\0';  
+
+                printf("Digite a Quantidade em estoque: ");
+                scanf("%d", &quant_estoque);
+                getchar();  
+
+                printf("Digite a Data de validade (dd/mm/aaaa): ");
+                fgets(data_validade, 11, stdin);
+                data_validade[strcspn(data_validade, "\n")] = '\0';  
+
+                printf("Digite o ID da compra: ");
+                fgets(id_compra, 20, stdin);
+                id_compra[strcspn(id_compra, "\n")] = '\0';  
+
+                printf("\nCadastro de produto realizado com sucesso!\n");
+                printf("ID-código-de-barra: %s\n", id_codigo);
+                printf("Nome: %s\n", nome);
+                printf("Marca: %s\n", marca);
+                printf("Quantidade em estoque: %d\n", quant_estoque);
+                printf("Data de validade: %s\n", data_validade);
+                printf("ID da compra: %s\n", id_compra);
+                break;
+
+            case 2:
+                printf("Saindo do cadastro.\n");
+                break;
+
+            default:
+                printf("Opção inválida! Por favor, tente novamente.\n");
+                break;
+        }
+    }
 void estoque(void) {
   int escolha;
   printf("/////////////////////////////////////////////////////////////////////"
@@ -347,5 +397,3 @@ void equipe(void) {
   scanf("%d", &escolha);
   getchar();
 }
-
-
