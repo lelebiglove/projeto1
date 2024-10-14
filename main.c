@@ -431,64 +431,50 @@ void orcamento(void) {
                 break;
         }
     }
+ void equipe(void) {
+        int escolha;
+
+        printf("\n");
+        printf("/////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                              ///\n");
+        printf("///             Universidade Federal do Rio Grande do Norte     ///\n");
+        printf("///                 Centro de Ensino Superior do Seridó         ///\n");
+        printf("///               Departamento de Computação e Tecnologia       ///\n");
+        printf("///                  Disciplina DCT1106 -- Programação          ///\n");
+        printf("///                  Projeto Sistema de Despensa Domestica      ///\n");
+        printf("///          Developed by @caiolucas_lm and @lelebiglove      ///\n");
+        printf("/////////////////////////////////////////////////////////////////////\n");
+        printf("///                                                              ///\n");
+        printf("///            Este projeto foi desenvolvido por:               ///\n");
+        printf("///                                                              ///\n");
+        printf("///            Caio Lucas Lopes Medeiros                        ///\n");
+        printf("///            E-mail: caio.lopes.078@ufrn.edu.br              ///\n");
+        printf("///            Redes sociais: @caiolucas_lm                    ///\n");
+        printf("///            Git: https://github.com/BiboDoceiro             ///\n");
+        printf("///                                                              ///\n");
+        printf("///                                                              ///\n");
+        printf("///            Leandro Isaac Correia de Brito                  ///\n");
+        printf("///            E-mail:leandroisaacbrito@gmail.com                                          ///\n");
+        printf("///            Redes sociais: @leandroisaac_                                  ///\n");
+        printf("/////////////////////////////////////////////////////////////////////\n");
+        printf("\n");
+        printf("#### Selecione uma das opções: \n");
+        printf("1. Voltar ao menu principal\n");
+        printf("2. Sair\n");
+        scanf("%d", &escolha);
+        getchar();  
+
+        switch (escolha) {
+            case 1:
+                printf("Voltando ao menu principal...\n");
+                break;
+            case 2:
+                printf("Saindo do programa...\n");
+                break;
+            default:
+                printf("Opção inválida! Por favor, tente novamente.\n");
+                break;
+        }
+    }
 
 
-void equipe(void) {
-
-  int escolha;
-  printf("\n");
-  printf("/////////////////////////////////////////////////////////////////////"
-         "//////////\n");
-  printf("///                                                                  "
-         "       ///\n");
-  printf("///             Universidade Federal do Rio Grande do Norte          "
-         "       ///\n");
-  printf("///                 Centro de Ensino Superior do Seridó              "
-         "       ///\n");
-  printf("///               Departamento de Computação e Tecnologia            "
-         "       ///\n");
-  printf("///                  Disciplina DCT1106 -- Programação               "
-         "       ///\n");
-  printf("///                  Projeto Sistema de Despensa Domestica           "
-         "       ///\n");
-  printf("///          Developed by @caiolucas_lm   and @lelebiglove           "
-         "       ///\n");
-  printf("///                                                                  "
-         "       ///\n");
-  printf("/////////////////////////////////////////////////////////////////////"
-         "//////////\n");
-  printf("///                                                                  "
-         "       ///\n");
-  printf("///                                                                  "
-         "       ///\n");
-  printf("///            Este projeto  foi desenvolvido por:                   "
-         "       ///\n");
-  printf("///                                                                  "
-         "       ///\n");
-  printf("///            Caio Lucas Lopes Medeiros                             "
-         "       ///\n");
-  printf("///            E-mail: caio.lopes.078@ufrn.edu.br                    "
-         "       ///\n");
-  printf("///            Redes sociais: @caiolucas_lm                          "
-         "       ///\n");
-  printf("///            Git: https://github.com/BiboDoceiro                   "
-         "       ///\n");
-  printf("///                                                                  "
-         "       ///\n");
-  printf("///                                                                  "
-         "       ///\n");
-  printf("///            Leandro Isaac correia de Brito                        "
-         "       ///\n");
-  printf("///            E-mail:                                               "
-         "       ///\n");
-  printf("///            Redes sociais:                                        "
-         "       ///\n");
-  printf("///                                                                  "
-         "       ///\n");
-  printf("/////////////////////////////////////////////////////////////////////"
-         "//////////\n");
-  printf("\n");
-  printf("#### Selecione uma das opcoes: \n");
-  scanf("%d", &escolha);
-  getchar();
-}
