@@ -107,75 +107,64 @@ void exibir_menu(void) {
     }
 
 void cadastro_pessoa(void) {
-  int escolha;
-  char id [20];  
-  char nome [50];
-  char cpf  [15];
-  char data_nascimento [11]; 
-  printf("/////////////////////////////////////////////////////////////////////"
-         "//////////\n");
-  printf("///                                                                  "
-         "       ///\n");
-  printf("///           = = = = = = = = = = = = = = = = = = = = = = = = =      "
-         "       ///\n");
-  printf("///           = = = = = = = = Cadastro Pessoal  = = = = = = = =      "
-         "       ///\n");
-  printf("///           = = = = = = = = = = = = = = = = = = = = = = = = =      "
-         "       ///\n");
-  printf("///                                                                  "
-         "       ///\n");
-  printf("///            ID:                                                   "
-         "       ///\n");
-  printf("///            Nome completo:                                        "
-         "       ///\n");
-  printf("///            CPF:                                                  "
-         "       ///\n");
-  printf("///            Data de Nascimento (dd/mm/aaaa):                      "
-         "       ///\n");
-  printf("///                                                                  "
-         "       ///\n");
-  printf("///                                                                  "
-         "       ///\n");
-  printf("/////////////////////////////////////////////////////////////////////"
-         "//////////\n");
-  printf("#### Selecione uma das opcoes: \n");
-  scanf("%d", &escolha);
-  printf("\n");
-  getchar();
+    int escolha;
+    char id[20];  
+    char nome[50];
+    char cpf[15];
+    char data_nascimento[11]; 
+
+    printf("/////////////////////////////////////////////////////////////////////\n");
+    printf("///                                                              ///\n");
+    printf("///           = = = = = = = = = = = = = = = = = = = = = = = =   ///\n");
+    printf("///           = = = = = = = = Cadastro Pessoal = = = = = = = =   ///\n");
+    printf("///           = = = = = = = = = = = = = = = = = = = = = = = =   ///\n");
+    printf("///                                                              ///\n");
+    printf("///            ID:                                               ///\n");
+    printf("///            Nome completo:                                    ///\n");
+    printf("///            CPF:                                            ///\n");
+    printf("///            Data de Nascimento (dd/mm/aaaa):                ///\n");
+    printf("/////////////////////////////////////////////////////////////////////\n");
+
+    printf("#### Selecione uma das opções: \n");
+    printf("1. Cadastrar Pessoa\n");
+    printf("2. Sair\n");
+    scanf("%d", &escolha);
+    getchar();  
+
     switch (escolha) {
-            case 1:
-                printf("Digite o ID: ");
-                fgets(id, sizeof(id), stdin);
-                id[strcspn(id, "\n")] = '\0';  //strcspn remove a nova linha sem usar uma função 
+        case 1:
+            printf("Digite o ID: ");
+            fgets(id, 20, stdin);
+            id[strcspn(id, "\n")] = '\0';  // Esse strcspn remove a linha sem usar função
 
-                printf("Digite o Nome completo: ");
-                fgets(nome, sizeof(nome), stdin);
-                nome[strcspn(nome, "\n")] = '\0';  
+            printf("Digite o Nome completo: ");
+            fgets(nome, 50, stdin);
+            nome[strcspn(nome, "\n")] = '\0';  
 
-                printf("Digite o CPF: ");
-                fgets(cpf, sizeof(cpf), stdin);
-                cpf[strcspn(cpf, "\n")] = '\0';  
+            printf("Digite o CPF: ");
+            fgets(cpf, 15, stdin);
+            cpf[strcspn(cpf, "\n")] = '\0';  
 
-                printf("Digite a Data de Nascimento (dd/mm/aaaa): ");
-                fgets(data_nascimento, sizeof(data_nascimento), stdin);
-                data_nascimento[strcspn(data_nascimento, "\n")] = '\0';  
+            printf("Digite a Data de Nascimento (dd/mm/aaaa): ");
+            fgets(data_nascimento, 11, stdin);
+            data_nascimento[strcspn(data_nascimento, "\n")] = '\0';  
 
-                printf("\nCadastro realizado com sucesso!\n");
-                printf("ID: %s\n", id);
-                printf("Nome: %s\n", nome);
-                printf("CPF: %s\n", cpf);
-                printf("Data de Nascimento: %s\n", data_nascimento);
-                break;
+            printf("\nCadastro realizado com sucesso!\n");
+            printf("ID: %s\n", id);
+            printf("Nome: %s\n", nome);
+            printf("CPF: %s\n", cpf);
+            printf("Data de Nascimento: %s\n", data_nascimento);
+            break;
 
-            case 2:
-                printf("Saindo do cadastro.\n");
-                break;
+        case 2:
+            printf("Saindo do cadastro.\n");
+            break;
 
-            default:
-                printf("Opção inválida! Por favor, tente novamente.\n");
-                break;
-        }
+        default:
+            printf("Opção inválida! Por favor, tente novamente.\n");
+            break;
     }
+}
 
 
 void produtos(void) {
@@ -431,7 +420,10 @@ void orcamento(void) {
                 break;
         }
     }
- void equipe(void) {
+
+
+
+    void equipe(void) {
         int escolha;
 
         printf("\n");
