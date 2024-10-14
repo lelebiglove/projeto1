@@ -80,7 +80,33 @@ void exibir_menu(void) {
   scanf("%d", &escolha);
   printf("\n");
   getchar();
-}
+getchar();
+    switch (escolha) {
+      case 1:
+        cadastro_pessoa();
+        break;
+      case 2:
+        produtos();
+        break;
+      case 3:
+        orcamento();
+        break;
+      case 4:
+        controle_estoque();
+        break;
+      case 5:
+        equipe();
+        break;
+      case 0:
+        printf("Saindo do sistema...\n");
+        break;
+      default:
+        printf("Opção inválida! Tente novamente.\n");
+        break;
+    }
+     while (escolha != 0);
+    }
+
 
 void cadastro_pessoa(void) {
   int escolha;
