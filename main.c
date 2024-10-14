@@ -80,7 +80,6 @@ void exibir_menu(void) {
   scanf("%d", &escolha);
   printf("\n");
   getchar();
-getchar();
     switch (escolha) {
       case 1:
         cadastro_pessoa();
@@ -107,9 +106,12 @@ getchar();
      while (escolha != 0);
     }
 
-
 void cadastro_pessoa(void) {
   int escolha;
+  char id [20];  
+  char nome [50];
+  char cpf  [15];
+  char data_nascimento [11]; 
   printf("/////////////////////////////////////////////////////////////////////"
          "//////////\n");
   printf("///                                                                  "
@@ -140,7 +142,41 @@ void cadastro_pessoa(void) {
   scanf("%d", &escolha);
   printf("\n");
   getchar();
-}
+    switch (escolha) {
+            case 1:
+                printf("Digite o ID: ");
+                fgets(id, sizeof(id), stdin);
+                id[strcspn(id, "\n")] = '\0';  //Pesquise melhor depois sobre essa função strcspn 
+
+                printf("Digite o Nome completo: ");
+                fgets(nome, sizeof(nome), stdin);
+                nome[strcspn(nome, "\n")] = '\0';  
+
+                printf("Digite o CPF: ");
+                fgets(cpf, sizeof(cpf), stdin);
+                cpf[strcspn(cpf, "\n")] = '\0';  
+
+                printf("Digite a Data de Nascimento (dd/mm/aaaa): ");
+                fgets(data_nascimento, sizeof(data_nascimento), stdin);
+                data_nascimento[strcspn(data_nascimento, "\n")] = '\0'; 
+
+                printf("\nCadastro realizado com sucesso!\n");
+                printf("ID: %s\n", id);
+                printf("Nome: %s\n", nome);
+                printf("CPF: %s\n", cpf);
+                printf("Data de Nascimento: %s\n", data_nascimento);
+                break;
+
+            case 2:
+                printf("Saindo do cadastro.\n");
+                break;
+
+            default:                  
+                printf("Opção inválida! Por favor, tente novamente.\n");
+                break;
+        }
+    }
+
 
 void produtos(void) {
 
@@ -311,4 +347,5 @@ void equipe(void) {
   scanf("%d", &escolha);
   getchar();
 }
+
 
