@@ -267,6 +267,12 @@ void produtos(void) {
     }
 void estoque(void) {
   int escolha;
+    char id_codigo[20];      
+    char id_compra[20];       
+    char data[11];            
+    char nome[100];           
+    int quantidade;           
+    float preco;              
   printf("/////////////////////////////////////////////////////////////////////"
          "//////////\n");
   printf("///                                                                  "
@@ -299,7 +305,53 @@ void estoque(void) {
   scanf("%d", &escolha);
   printf("\n");
   getchar();
-}
+     getchar();  
+
+        switch (escolha) {
+            case 1:
+                printf("Digite o ID-código-de-barra: ");
+                fgets(id_codigo, 20, stdin);
+                id_codigo[strcspn(id_codigo, "\n")] = '\0';  
+
+                printf("Digite o ID da compra: ");
+                fgets(id_compra, 20, stdin);
+                id_compra[strcspn(id_compra, "\n")] = '\0';  
+
+                printf("Digite a Data (dd/mm/aaaa): ");
+                fgets(data, 11, stdin);
+                data[strcspn(data, "\n")] = '\0';  
+
+                printf("Digite o Nome: ");
+                fgets(nome, 100, stdin);
+                nome[strcspn(nome, "\n")] = '\0';  
+
+                printf("Digite a Quantidade: ");
+                scanf("%d", &quantidade);
+                getchar();  
+
+                printf("Digite o Preço: ");
+                scanf("%f", &preco);
+                getchar();  
+
+                printf("\nCadastro de item no estoque realizado com sucesso!\n");
+                printf("ID-código-de-barra: %s\n", id_codigo);
+                printf("ID da compra: %s\n", id_compra);
+                printf("Data: %s\n", data);
+                printf("Nome: %s\n", nome);
+                printf("Quantidade: %d\n", quantidade);
+                printf("Preço: %.2f\n", preco);
+                break;
+
+            case 2:
+                printf("Saindo do controle de estoque.\n");
+                break;
+
+            default:
+                printf("Opção inválida! Por favor, tente novamente.\n");
+                break;
+        }
+    }
+
 
 void orcamento(void) {
   int escolha;
@@ -397,3 +449,4 @@ void equipe(void) {
   scanf("%d", &escolha);
   getchar();
 }
+
