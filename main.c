@@ -59,6 +59,8 @@ void inicio_login(void) {
             printf("Opção inválida!\n");
             break;
     }
+
+    printf("");
 }
 
 void exibir_menu(void) {
