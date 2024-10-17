@@ -20,7 +20,7 @@ void produtos(void);
 void controle_estoque(void);
 void orcamento(void);
 void equipe(void);
-
+void relatorio(void); 
 int main(void) {
     setlocale(LC_ALL, "Portuguese");
     printf("Bem vindo ao seu controle de despesas\n");
@@ -73,6 +73,7 @@ void exibir_menu(void) {
         printf("///   3. Orçamento                                                   ///\n");
         printf("///   4. Controle de Estoque                                         ///\n");
         printf("///   5. Equipe                                                      ///\n");
+        printf("///   6. Relatório                                                   ///\n");
         printf("///   0. Sair                                                        ///\n");
         printf("/////////////////////////////////////////////////////////////////////\n");
         printf("#### Selecione uma das opções: \n");
@@ -95,6 +96,9 @@ void exibir_menu(void) {
             case 5:
                 equipe();
                 break;
+             case 6 : 
+             relatorio
+                   break;   
             case 0:
                 printf("Saindo do sistema...\n");
                 break;
