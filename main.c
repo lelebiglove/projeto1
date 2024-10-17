@@ -6,7 +6,7 @@
 ///             Projeto Sistema de Gestão Para Despensa Domestica           ///
 ///                Developed by @cailucas_lm & @lelebiglove                 ///
 ///////////////////////////////////////////////////////////////////////////////
-///                                Semana 4                               ///
+///                                Semana 5                               ///
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <locale.h>
