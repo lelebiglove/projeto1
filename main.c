@@ -12,28 +12,35 @@
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 
 void inicio_login(void);
 void exibir_menu(void);
 void cadastro_Pessoa(void);
 void produtos(void);
 void controle_estoque(void);
-void orcamento(void);
+void relatorio (void);
+void menu_orcamento(void);
+void cadastrar_orcamento(void);
+void editar_orcamento(void);  
+void excluir_orcamento(void); 
+void visu_resumo(void);       
+
 void equipe(void);
-void relatorio(void); 
+
 
 int main(void) {
     setlocale(LC_ALL, "Portuguese");
     printf("Bem vindo ao seu controle de despesas\n");
-    inicio_login();   
+    inicio_login();  
     exibir_menu();    
-    cadastro_Pessoa();
-    produtos();
-    controle_estoque();
-    orcamento();
-    equipe();
+
     return 0;
 }
+
+
+
 
 void inicio_login(void) {
     int escolha; 
@@ -89,7 +96,7 @@ void exibir_menu(void) {
                 produtos();
                 break;
             case 3:
-                orcamento();
+                menu_orcamento();
                 break;
             case 4:
                 controle_estoque();
@@ -539,3 +546,4 @@ void equipe(void) {
             break;
     }
 }
+
