@@ -1,4 +1,4 @@
-// Arquivo: cadastro_pessoa.c
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,15 +14,15 @@ void cadastro_pessoa(void) {
     // Coleta dos dados do usuário
     printf("Digite o nome: ");
     fgets(pessoa.nome, sizeof(pessoa.nome), stdin);
-    pessoa.nome[strcspn(pessoa.nome, "\n")] = '\0';  // Remove o '\n' do final da string
+    pessoa.nome[strcspn(pessoa.nome, "\n")] = '\0';  
 
     printf("Digite a idade: ");
     scanf("%d", &pessoa.idade);
-    getchar();  // Consumir o '\n' deixado pelo scanf
+    getchar();  
 
     printf("Digite o CPF (somente números): ");
     fgets(pessoa.cpf, sizeof(pessoa.cpf), stdin);
-    pessoa.cpf[strcspn(pessoa.cpf, "\n")] = '\0';  // Remove o '\n' do final da string
+    pessoa.cpf[strcspn(pessoa.cpf, "\n")] = '\0';  
 
     // Exibe os dados cadastrados
     printf("\nPessoa cadastrada:\n");

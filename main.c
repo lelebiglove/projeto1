@@ -31,15 +31,14 @@ void visu_resumo(void);
 void equipe(void);
 
 
-int main(void) {
-    setlocale(LC_ALL, "Portuguese");
-    printf("Bem vindo ao seu controle de despesas\n");
+#include <stdio.h>
+#include "cadastro_pessoa.h"  // Inclui o arquivo de cabeçalho onde a função está declarada
 
-
-    cadastro_Pessoa();
-
+int main() {
+    cadastro_pessoa();  // Chama a função de cadastro de pessoa
     return 0;
 }
+
 
 
 
