@@ -1,57 +1,32 @@
+// Arquivo: cadastro_pessoa.c
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "funcoes.h"  
+#include "cadastro_pessoa.h"
 
-void cadastro_Pessoa(void) {
-    int escolha;
-    char id[20];  
-    char nome[50];
-    char cpf[15];
-    char data_nascimento[11]; 
 
-    printf("/////////////////////////////////////////////////////////////////////\n");
-    printf("///           = = = = = = = Cadastro Pessoal = = = = = = =           ///\n");
-    printf("/////////////////////////////////////////////////////////////////////\n");
+void cadastro_pessoa(void) {
+    Pessoa pessoa;  
 
-    printf("#### Selecione uma das opções: \n");
-    printf("1. Cadastrar Pessoa\n");
-    printf("2. Sair\n");
-    scanf("%d", &escolha);
-    getchar();  
+    printf("=== Cadastro de Pessoa ===\n");
 
-    switch (escolha) {
-        case 1:
-            printf("Digite o ID: ");
-            fgets(id, 20, stdin);
-            id[strcspn(id, "\n")] = '\0';  
+    // Coleta dos dados do usuário
+    printf("Digite o nome: ");
+    fgets(pessoa.nome, sizeof(pessoa.nome), stdin);
+    pessoa.nome[strcspn(pessoa.nome, "\n")] = '\0';  // Remove o '\n' do final da string
 
-            printf("Digite o Nome completo: ");
-            fgets(nome, 50, stdin);
-            nome[strcspn(nome, "\n")] = '\0';  
+    printf("Digite a idade: ");
+    scanf("%d", &pessoa.idade);
+    getchar();  // Consumir o '\n' deixado pelo scanf
 
-            printf("Digite o CPF: ");
-            fgets(cpf, 15, stdin);
-            cpf[strcspn(cpf, "\n")] = '\0';  
+    printf("Digite o CPF (somente números): ");
+    fgets(pessoa.cpf, sizeof(pessoa.cpf), stdin);
+    pessoa.cpf[strcspn(pessoa.cpf, "\n")] = '\0';  // Remove o '\n' do final da string
 
-            printf("Digite a Data de Nascimento (dd/mm/aaaa): ");
-            fgets(data_nascimento, 11, stdin);
-            data_nascimento[strcspn(data_nascimento, "\n")] = '\0';  
-
-            printf("\nCadastro realizado com sucesso!\n");
-            printf("ID: %s\n", id);
-            printf("Nome: %s\n", nome);
-            printf("CPF: %s\n", cpf);
-            printf("Data de Nascimento: %s\n", data_nascimento);
-            break;
-
-        case 2:
-            printf("Saindo do cadastro.\n");
-            break;
-
-        default:
-            printf("Opção inválida! Por favor, tente novamente.\n");
-            break;
-    }
+    // Exibe os dados cadastrados
+    printf("\nPessoa cadastrada:\n");
+    printf("Nome: %s\n", pessoa.nome);
+    printf("Idade: %d\n", pessoa.idade);
+    printf("CPF: %s\n", pessoa.cpf);
 }
