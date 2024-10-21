@@ -32,10 +32,10 @@ void equipe(void);
 
 
 #include <stdio.h>
-#include "cadastro_pessoa.h"  // Inclui o arquivo de cabeçalho onde a função está declarada
+#include "cadastro_pessoa.h"  
 
 int main() {
-    cadastro_pessoa();  // Chama a função de cadastro de pessoa
+    cadastro_pessoa(); 
     return 0;
 }
 
