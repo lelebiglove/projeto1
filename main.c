@@ -417,17 +417,53 @@ void cadastrar_orcamento(){
     printf("Valor gasto: %.2f\n", valor_gasto);
 
 }
-void editar_orcamento(void){
+void editar_orcamento(void) {
+    char id_codigo[20];
+   
+    printf("Digite o ID do orçamento que deseja editar: ");
+    fgets(id_codigo, 20, stdin);
+    id_codigo[strcspn(id_codigo, "\n")] = '\0';  // Remover o '\n'
 
-} 
+    
+    printf("Editando orçamento com ID: %s\n", id_codigo);
 
-void excluir_orcamento(void){
+    char data[11];
+    printf("Digite a nova Data (dd/mm/aaaa): ");
+    fgets(data, 11, stdin);
+    data[strcspn(data, "\n")] = '\0';
 
-}    
-
-void visu_orcamento(void){
-
+    printf("Orçamento editado com sucesso!\n");
+    printf("Novo ID: %s\n", id_codigo);
+    printf("Nova Data: %s\n", data);
 }
+
+void excluir_orcamento(void) {
+    char id_codigo[20];
+    
+    printf("Digite o ID do orçamento que deseja excluir: ");
+    fgets(id_codigo, 20, stdin);
+    id_codigo[strcspn(id_codigo, "\n")] = '\0';  // Remover o '\n'
+
+    
+    printf("Orçamento com ID: %s excluído com sucesso!\n", id_codigo);
+}
+
+void visu_resumo(void) {
+    
+    printf("/////////////////////////////////////////////////////////////////////\n");
+    printf("///                   = = = = = = = = Resumo = = = = = = = =       ///\n");
+    printf("/////////////////////////////////////////////////////////////////////\n");
+    
+  
+    printf("ID: 12345\n");
+    printf("Data: 20/10/2024\n");
+    printf("Hora: 14:30\n");
+    printf("Quantidade: 2\n");
+    printf("Valor gasto: R$ 50,00\n");
+
+    printf("/////////////////////////////////////////////////////////////////////\n");
+}
+
 
 
 
