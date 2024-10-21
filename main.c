@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "funcoes.h" 
 
 
 void inicio_login(void);
@@ -33,11 +34,13 @@ void equipe(void);
 int main(void) {
     setlocale(LC_ALL, "Portuguese");
     printf("Bem vindo ao seu controle de despesas\n");
-    inicio_login();  
-    exibir_menu();    
+
+
+    cadastro_Pessoa();
 
     return 0;
 }
+
 
 
 
