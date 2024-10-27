@@ -1,6 +1,8 @@
+// orcamento.c
+
 #include <stdio.h>
 #include <stdlib.h>
-#include "funcoes.h"
+#include "orcamento.h"
 
 void menu_cadastro_orcamento(void) {
     int escolha;
@@ -15,7 +17,7 @@ void menu_cadastro_orcamento(void) {
         printf("///                                                                         ///\n");
         printf("///////////////////////////////////////////////////////////////////////////////\n");
         printf("///                                                                         ///\n");
-        printf("///            = = = = = = = = = Menu Orçamento = = = = = = = =             ///\n");
+        printf("///            = = = = = = = = = Menu Orçamento = = = = = = = = =           ///\n");
         printf("///                                                                         ///\n");
         printf("///            1. Cadastrar um novo orçamento                               ///\n");
         printf("///            2. Pesquisar orçamentos                                      ///\n");
@@ -26,6 +28,7 @@ void menu_cadastro_orcamento(void) {
         printf("///            Escolha a opção desejada: ");
         scanf("%d", &escolha);
         getchar();
+        
         switch (escolha) {
             case 1:
                 cadastrar_orcamento();
@@ -43,8 +46,6 @@ void menu_cadastro_orcamento(void) {
                 break;
             default:
                 printf("\t\t\t>Opção inválida! Tente novamente.\n");
-                printf("///                                                                         ///\n");
-                printf("///////////////////////////////////////////////////////////////////////////////\n");
                 printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
                 getchar();
         }
@@ -52,25 +53,25 @@ void menu_cadastro_orcamento(void) {
 }
 
 void cadastrar_orcamento(void) {
-    char descricao[50];
-    char valor[15];
+    char descricao[100];
+    char valor[20];
     char data[11];
 
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///            = = = = = Cadastrar Novo Orçamento = = = = = = = = = = = =    ///\n");
+    printf("///            = = = = = Cadastrar Novo Orçamento = = = = = = = = = = = =   ///\n");
     printf("///                                                                         ///\n");
     printf("/// Informe os dados do orçamento:                                          ///\n");
     printf("///            Descrição: ");
     fgets(descricao, sizeof(descricao), stdin);
-    printf("///            Valor (em R$): ");
+    printf("///            Valor: ");
     fgets(valor, sizeof(valor), stdin);
-    printf("///            Data (dd/mm/aaaa): ");
+    printf("///            Data (dd/mm/yyyy): ");
     fgets(data, sizeof(data), stdin);
 
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///            Orçamento cadastrado com sucesso!                            ///\n");
     printf("///            Descrição: %s", descricao);
-    printf("///            Valor: R$ %s", valor);
+    printf("///            Valor: %s", valor);
     printf("///            Data: %s", data);
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
@@ -78,7 +79,7 @@ void cadastrar_orcamento(void) {
 }
 
 void pesquisar_orcamento(void) {
-    char descricao[50];
+    char descricao[100];
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
     printf("///            = = = = = Pesquisar Orçamento = = = = = = = = = = = = =      ///\n");
     printf("///                                                                         ///\n");
@@ -91,7 +92,7 @@ void pesquisar_orcamento(void) {
 }
 
 void editar_orcamento(void) {
-    char descricao[50];
+    char descricao[100];
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
     printf("///            = = = = = Editar Orçamento = = = = = = = = = = = = =         ///\n");
     printf("///                                                                         ///\n");
@@ -104,9 +105,9 @@ void editar_orcamento(void) {
 }
 
 void excluir_orcamento(void) {
-    char descricao[50];
+    char descricao[100];
     printf("\n///////////////////////////////////////////////////////////////////////////////\n");
-    printf("///            = = = = = Excluir Orçamento = = = = = = = = = = = =          ///\n");
+    printf("///            = = = = = Excluir Orçamento = = = = = = = = = = = = =        ///\n");
     printf("///                                                                         ///\n");
     printf("/// Informe a descrição do orçamento que deseja excluir: ");
     fgets(descricao, sizeof(descricao), stdin);
