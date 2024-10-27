@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "pessoa.h"
+#include "funcoes.h"
 
 
 void menu_cadastro_pessoal(void){
