@@ -6,22 +6,19 @@
 ///             Projeto Sistema de Gestão Para Despensa Domestica           ///
 ///                Developed by @cailucas_lm & @lelebiglove                 ///
 ///////////////////////////////////////////////////////////////////////////////
-///                                Semana  6                            ///
+///                                Semana 6                            ///
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include "funcoes.h" 
-
+#include "pessoa.h"  
 
 void inicio_login(void);
 void exibir_menu(void);
-void cadastro_Pessoa(void);
+void cadastro_pessoa(void);
 void produtos(void);
 void controle_estoque(void);
-void relatorio (void);
 void menu_orcamento(void);
 void cadastrar_orcamento(void);
 void editar_orcamento(void);  
@@ -30,19 +27,13 @@ void visu_resumo(void);
 
 void equipe(void);
 
-
-#include <stdio.h>
-#include "cadastro_pessoa.h"  
-
-int main() {
-    cadastro_pessoa(); 
+int main(void) {
+    setlocale(LC_ALL, "Portuguese");
+    printf("Bem vindo ao seu controle de despesas\n");
+    inicio_login();   
+    exibir_menu();    
     return 0;
 }
-
-
-
-
-
 
 void inicio_login(void) {
     int escolha; 
@@ -57,7 +48,7 @@ void inicio_login(void) {
     printf("----------------------------------------|\n");
     printf("#### Selecione uma das opções: \n");
     scanf("%d", &escolha);
-    getchar();  // Para consumir o '\n' deixado pelo scanf
+    getchar();  
     switch (escolha) {
         case 1:
             printf("Login selecionado.\n");
@@ -69,8 +60,6 @@ void inicio_login(void) {
             printf("Opção inválida!\n");
             break;
     }
-
-    printf("");
 }
 
 void exibir_menu(void) {
@@ -83,16 +72,15 @@ void exibir_menu(void) {
         printf("///   3. Orçamento                                                   ///\n");
         printf("///   4. Controle de Estoque                                         ///\n");
         printf("///   5. Equipe                                                      ///\n");
-        printf("///   6. Relatorio                                                   ///\n");
         printf("///   0. Sair                                                        ///\n");
         printf("/////////////////////////////////////////////////////////////////////\n");
         printf("#### Selecione uma das opções: \n");
         scanf("%d", &escolha);
         getchar();  
-        
+
         switch (escolha) {
             case 1:
-                cadastro_Pessoa();
+                cadastro_pessoa();
                 break;
             case 2:
                 produtos();
@@ -106,9 +94,6 @@ void exibir_menu(void) {
             case 5:
                 equipe();
                 break;
-             case 6 : 
-             relatorio();
-                 break;     
             case 0:
                 printf("Saindo do sistema...\n");
                 break;
@@ -119,58 +104,58 @@ void exibir_menu(void) {
     } while (escolha != 0);
 }
 
-void cadastro_Pessoa(void) {
+void cadastro_pessoal(void) {
     int escolha;
     char id[20];  
     char nome[50];
     char cpf[15];
     char data_nascimento[11]; 
-
     printf("/////////////////////////////////////////////////////////////////////\n");
-    printf("///           = = = = = = = Cadastro Pessoal = = = = = = =           ///\n");
+    printf("///          = = = = = = = Cadastro Pessoa = = = = = = =          ///\n");
     printf("/////////////////////////////////////////////////////////////////////\n");
-
     printf("#### Selecione uma das opções: \n");
     printf("1. Cadastrar Pessoa\n");
-    printf("2. Sair\n");
+    printf("2. Pesquisar Pessoa\n");
+    printf("3. Editar Pessoa   \n");
+    printf("4. Excluir Pessoa  \n");
+    printf("5. Sair\n");
     scanf("%d", &escolha);
     getchar();  
-
     switch (escolha) {
         case 1:
             printf("Digite o ID: ");
             fgets(id, 20, stdin);
-            id[strcspn(id, "\n")] = '\0';  // Remover o '\n'
-
+            id[strcspn(id, "\n")] = '\0';  
             printf("Digite o Nome completo: ");
             fgets(nome, 50, stdin);
             nome[strcspn(nome, "\n")] = '\0';  
-
             printf("Digite o CPF: ");
             fgets(cpf, 15, stdin);
             cpf[strcspn(cpf, "\n")] = '\0';  
-
             printf("Digite a Data de Nascimento (dd/mm/aaaa): ");
             fgets(data_nascimento, 11, stdin);
             data_nascimento[strcspn(data_nascimento, "\n")] = '\0';  
-
             printf("\nCadastro realizado com sucesso!\n");
             printf("ID: %s\n", id);
             printf("Nome: %s\n", nome);
             printf("CPF: %s\n", cpf);
             printf("Data de Nascimento: %s\n", data_nascimento);
             break;
-
         case 2:
-            printf("Saindo do cadastro.\n");
+            printf("Pesquisar Pessoa.\n");
             break;
-
+        
+        case 3:
+            printf("Editar Pessoa.\n");
+            break;
+        
+        case 4:
+    
         default:
             printf("Opção inválida! Por favor, tente novamente.\n");
             break;
     }
 }
-
 void produtos(void) {
     int escolha;
     char id_codigo[20];      
@@ -319,6 +304,7 @@ void controle_estoque(void) {
         }
     }
 
+
 void menu_orcamento(void) {
     int escolha;
     do{
@@ -363,18 +349,18 @@ void menu_orcamento(void) {
                 case 2:
                     editar_orcamento();
                     break;
-                
+
                 case 3:
                     excluir_orcamento();
                     break;
-                
+
                 case 4:
                     visu_resumo();
                     break;
-                
+
                 case 0:
-                    
-                
+
+
                 default:
                     printf("\t\t\t>Opção inválida! Tente novamente.\n");           
                     printf("///////////////////////////////////////////////////////////////////////////////\n");
@@ -419,55 +405,17 @@ void cadastrar_orcamento(){
     printf("Valor gasto: %.2f\n", valor_gasto);
 
 }
-void editar_orcamento(void) {
-    char id_codigo[20];
-   
-    printf("Digite o ID do orçamento que deseja editar: ");
-    fgets(id_codigo, 20, stdin);
-    id_codigo[strcspn(id_codigo, "\n")] = '\0';  // Remover o '\n'
+void editar_orcamento(void){
 
-    
-    printf("Editando orçamento com ID: %s\n", id_codigo);
+} 
 
-    char data[11];
-    printf("Digite a nova Data (dd/mm/aaaa): ");
-    fgets(data, 11, stdin);
-    data[strcspn(data, "\n")] = '\0';
+void excluir_orcamento(void){
 
-    printf("Orçamento editado com sucesso!\n");
-    printf("Novo ID: %s\n", id_codigo);
-    printf("Nova Data: %s\n", data);
+}    
+
+void visu_orcamento(void){
+
 }
-
-void excluir_orcamento(void) {
-    char id_codigo[20];
-    
-    printf("Digite o ID do orçamento que deseja excluir: ");
-    fgets(id_codigo, 20, stdin);
-    id_codigo[strcspn(id_codigo, "\n")] = '\0';  // Remover o '\n'
-
-    
-    printf("Orçamento com ID: %s excluído com sucesso!\n", id_codigo);
-}
-
-void visu_resumo(void) {
-    
-    printf("/////////////////////////////////////////////////////////////////////\n");
-    printf("///                   = = = = = = = = Resumo = = = = = = = =       ///\n");
-    printf("/////////////////////////////////////////////////////////////////////\n");
-    
-  
-    printf("ID: 12345\n");
-    printf("Data: 20/10/2024\n");
-    printf("Hora: 14:30\n");
-    printf("Quantidade: 2\n");
-    printf("Valor gasto: R$ 50,00\n");
-
-    printf("/////////////////////////////////////////////////////////////////////\n");
-}
-
-
-
 
 
 void equipe(void) {
@@ -504,84 +452,3 @@ void equipe(void) {
             break;
     }
 }
- 
- void relatorio(void) {
-    int escolha;
-    char id_codigo[20];       
-    char data_inicio[11];     
-    char data_fim[11];        
-    float total_gasto;        
-    int total_itens_consumidos;
-
-    printf("\n");
-    printf("/////////////////////////////////////////////////////////////////////"
-           "//////////\n");
-    printf("///                                                                  "
-           "       ///\n");
-    printf("///            = = = = = = = = = = = = = = = = = = = = = = = =       "
-           "       ///\n");
-    printf("///            = = = = = = = =   Relatório   = = = = = = = = =       "
-           "       ///\n");
-    printf("///            = = = = = = = = = = = = = = = = = = = = = = = =       "
-           "       ///\n");
-    printf("///                                                                  "
-           "       ///\n");
-    printf("///            ID-código-de-barra do produto:                        "
-           "       ///\n");
-    printf("///            Data Início (dd/mm/aaaa):                             "
-           "       ///\n");
-    printf("///            Data Fim (dd/mm/aaaa):                                "
-           "       ///\n");
-    printf("///            Total gasto:                                          "
-           "       ///\n");
-    printf("///            Total de itens consumidos:                            "
-           "       ///\n");
-    printf("///                                                                  "
-           "       ///\n");
-    printf("/////////////////////////////////////////////////////////////////////"
-           "//////////\n");
-    printf("\n");
-    printf("#### Selecione uma das opções: \n");
-    scanf("%d", &escolha);
-    getchar();
-
-    switch (escolha) {
-        case 1:
-            printf("Digite o ID-código-de-barra do produto: ");
-            fgets(id_codigo, 20, stdin);
-            id_codigo[strcspn(id_codigo, "\n")] = '\0';  
-
-            printf("Digite a Data Início (dd/mm/aaaa): ");
-            fgets(data_inicio, 11, stdin);
-            data_inicio[strcspn(data_inicio, "\n")] = '\0';  
-
-            printf("Digite a Data Fim (dd/mm/aaaa): ");
-            fgets(data_fim, 11, stdin);
-            data_fim[strcspn(data_fim, "\n")] = '\0'; 
-
-            printf("Digite o Total gasto no período: ");
-            scanf("%f", &total_gasto);
-            getchar();  
-
-            printf("Digite o Total de itens consumidos: ");
-            scanf("%d", &total_itens_consumidos);
-            getchar();  
-
-            printf("\nRelatório gerado com sucesso!\n");
-            printf("ID-código-de-barra: %s\n", id_codigo);
-            printf("Data Início: %s\n", data_inicio);
-            printf("Data Fim: %s\n", data_fim);
-            printf("Total gasto: %.2f\n", total_gasto);
-            printf("Total de itens consumidos: %d\n", total_itens_consumidos);
-            break;
-
-        case 2:
-            printf("Saindo do relatório.\n");
-            break;
-
-        default:
-            printf("Opção inválida! Por favor, tente novamente.\n");
-            break;
-    }
-}
-
