@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "funcoes.h"  
+#include "orcamento.h"
 
 void inicio_login(void);
 void exibir_menu(void);
@@ -32,6 +33,7 @@ int main(void) {
     printf("Bem vindo ao seu controle de despesas\n");
     inicio_login();   
     exibir_menu();    
+    menu_cadastro_orcamento();
     return 0;
 }
 
